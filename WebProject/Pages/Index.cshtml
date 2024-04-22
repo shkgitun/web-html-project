@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To My Webpage</h1>
+    <p>Here is my favourite music video from YouTube.
+    Please click to view!
+    <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<body>
+    <div class="container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SSioczZRxHs?si=PPty8aPFjHD04Ti5"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+    </div>
+
+    <p>
+        <button Onclick="Animate()">Click Me!</button>
+    </p>
+
+    <div id="myContainer">
+        <div id="myAnimation"></div>
+    </div>
+</body>
+
+<button Onclick="Reset()">Reset</button>
+
+@section Scripts
+{
+    <script>
+        function Animate() {
+            var obj= document.getElementById("myAnimation")
+            obj.style.visibility="visible"
+            
+            moveObj(obj)
+
+         }
+
+        function moveObj(obj) {
+            var left = parseInt(obj.style.left) || 0;
+
+            obj.style.left = (left + 20) + 'px';
+            
+        }
+
+        function Reset() {
+            var obj = document.getElementById("myAnimation");
+            obj.style.left = 0;
+        }
+
+    </script>
+} 
